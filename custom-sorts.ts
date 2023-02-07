@@ -46,6 +46,23 @@ export function reverseBaseSort(arr: number[]): number[] {
   });
 }
 
-export function frequencySort(arr) {
-  // Your code here
+export function frequencySort(arr: number[]): number[] {
+  const frequency: Record<number, number> = {};
+  for (let i = 0; i < arr.length; i++) {
+    const n = arr[i];
+    if (n && frequency[n] != null) {
+      frequency[n]++;
+    } else if (n != null) {
+      frequency[n] = 0;
+    }
+  }
+  return arr.sort((a, b) => {
+    const [aFrequency, bFrequency] = [frequency[a]!, frequency[b]!];
+    if (aFrequency < bFrequency) {
+      return -1;
+    } else if (aFrequency > bFrequency) {
+      return 1;
+    }
+    return a > b ? -1 : a < b ? 1 : 0;
+  });
 }
