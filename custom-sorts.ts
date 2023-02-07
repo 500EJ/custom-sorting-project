@@ -26,8 +26,9 @@ export function oddEvenSort(arr: number[]): number[] {
   });
 }
 
-export function validAnagrams(s, t) {
-  // Your code here
+export function validAnagrams(s: string, t: string): boolean {
+  const [sArr, tArr] = [s.split(""), t.split("")];
+  return sArr.sort().join("") === tArr.sort().join("");
 }
 
 export function reverseBaseSort(arr) {
