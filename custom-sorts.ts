@@ -31,8 +31,19 @@ export function validAnagrams(s: string, t: string): boolean {
   return sArr.sort().join("") === tArr.sort().join("");
 }
 
-export function reverseBaseSort(arr) {
-  // Your code here
+export function reverseBaseSort(arr: number[]): number[] {
+  return arr.sort((a, b) => {
+    if (String(a).length > String(b).length) {
+      return -1;
+    } else if (String(a).length < String(b).length) {
+      return 1;
+    } else if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 export function frequencySort(arr) {
